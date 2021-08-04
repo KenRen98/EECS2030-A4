@@ -167,7 +167,8 @@ List<T>, Cloneable, Serializable {
         }
     }
     
-
+    //Following Lines are for Testing, unquote them if you want quickly test the code.
+    /*
     public static void main(String[] args) {
         DoublyLinkedList list = new DoublyLinkedList();
         for (int i=0;i<=20;i++){
@@ -188,6 +189,7 @@ List<T>, Cloneable, Serializable {
         list.printlist();
         System.out.println("Size of the List: "+list.size());
     }
+    */
 
     /**
      * Print the List in Command Line, only for Testing purpose.
