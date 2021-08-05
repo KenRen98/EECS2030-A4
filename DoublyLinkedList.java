@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.ArrayList;
+import java.lang.Exception;
 
 /**
  * A simple implementation of Doubly Linked List
@@ -30,7 +31,7 @@ List<T>, Cloneable, Serializable {
      * @param index the Index of the object being added
      * @param o the object being added
      */
-    public void add(int index, T o){
+    public void add(int index, T o) throws IndexOutOfBoundsException{
         Node a = new Node(o);
         a.setPrevious(getHelper(index));
         a.setNext(getHelper(index).getNext());
@@ -66,6 +67,9 @@ List<T>, Cloneable, Serializable {
      * @return the node on given index
      */
     private Node getHelper(int index){
+        if(index > this.size() || index<0){
+            throw new IndexOutOfBoundsException();
+        }
         Node current = head;
         if(index == 0){
             return current;
@@ -168,7 +172,7 @@ List<T>, Cloneable, Serializable {
     }
     
     //Following Lines are for Testing, unquote them if you want quickly test the code.
-    /*
+    
     public static void main(String[] args) {
         DoublyLinkedList list = new DoublyLinkedList();
         for (int i=0;i<=20;i++){
@@ -187,9 +191,14 @@ List<T>, Cloneable, Serializable {
         list.printlist();
         System.out.println("Poped: "+list.pop());
         list.printlist();
+        try {
+            list.add(30,4);
+        } catch (Exception e) {
+            System.out.println("Successfully Catched Excepted Exception");
+        }
         System.out.println("Size of the List: "+list.size());
     }
-    */
+    
 
     /**
      * Print the List in Command Line, only for Testing purpose.
